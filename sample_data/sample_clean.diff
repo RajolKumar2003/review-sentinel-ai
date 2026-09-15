@@ -1,0 +1,30 @@
+diff --git a/utils/math_helpers.py b/utils/math_helpers.py
+new file mode 100644
+index 0000000..1a2b3c4
+--- /dev/null
++++ b/utils/math_helpers.py
+@@ -0,0 +1,10 @@
++"""Small collection of math helpers used across the reporting module."""
++
++
++def clamp(value: float, low: float, high: float) -> float:
++    if value < low:
++        return low
++    if value > high:
++        return high
++    return value
++
+diff --git a/tests/test_math_helpers.py b/tests/test_math_helpers.py
+new file mode 100644
+index 0000000..9f8e7d6
+--- /dev/null
++++ b/tests/test_math_helpers.py
+@@ -0,0 +1,8 @@
++from utils.math_helpers import clamp
++
++
++def test_clamp():
++    assert clamp(5, 0, 10) == 5
++    assert clamp(-1, 0, 10) == 0
++    assert clamp(15, 0, 10) == 10
++

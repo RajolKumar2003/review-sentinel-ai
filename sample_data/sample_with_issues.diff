@@ -1,0 +1,38 @@
+diff --git a/services/payment_gateway.py b/services/payment_gateway.py
+new file mode 100644
+index 0000000..4d5e6f7
+--- /dev/null
++++ b/services/payment_gateway.py
+@@ -0,0 +1,32 @@
++import requests
++
++api_key = "FAKE_DEMO_KEY_1234567890abcdef"
++
++
++def process_transaction(amount, currency, user, retries, use_backup, is_refund, discount_code, promo_active, region):
++    if amount <= 0:
++        return None
++    if currency == "USD":
++        if user.is_verified:
++            if not is_refund:
++                if discount_code:
++                    if promo_active:
++                        amount = amount * 0.9
++                    else:
++                        amount = amount
++                else:
++                    amount = amount
++            else:
++                amount = -amount
++        else:
++            if retries > 0:
++                return process_transaction(amount, currency, user, retries - 1, use_backup, is_refund, discount_code, promo_active, region)
++            else:
++                return None
++    else:
++        if use_backup:
++            amount = amount * 1.1
++        else:
++            amount = amount
++    return amount
++
