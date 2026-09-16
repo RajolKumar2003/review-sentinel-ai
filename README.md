@@ -6,6 +6,12 @@ code — to a small pipeline of reasoning agents, and produces a prioritized,
 risk-scored report. A human always has to click Approve or Reject. Nothing in
 this system can auto-merge anything, by design.
 
+# ReviewSentinel AI
+
+**Live demo:** [review-sentinel-ai-bygywsuyjmqxkxufwiuupv.streamlit.app](https://review-sentinel-ai-bygywsuyjmqxkxufwiuupv.streamlit.app/)
+
+An AI-native, multi-agent code review accelerator. It runs deterministic static
+
 This exists as a companion piece to [CyberSentinel AI](https://github.com/RajolKumar2003/cybersentinel-ai)
 (agentic network security investigation) — same engineering pattern (deterministic
 tools + agent reasoning + human-in-the-loop), applied to the software development
